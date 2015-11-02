@@ -29,9 +29,11 @@
 }
 
 - (void)click{
-   KNAlertView *alertView = [KNAlertView showMessage:@"你好" title:@"提示" cancelBtnTitle:@"取消" alertViewStyle:KNAlertViewStyleLoginAndPasswordInput];
+//   KNAlertView *alertView = [KNAlertView showMessage:@"你好" title:@"提示" cancelBtnTitle:@"取消" alertViewStyle:KNAlertViewStyleLoginAndPasswordInput];
 
-//   KKNAlertView *alertView = [KNAlertView showMessage:@"您好" title:nil cancelBtnTitle:@"取消" otherBtnTitle:@"确定" alertViewStyle:KNAlertViewStyleSecureTextInput];
+//   KNAlertView *alertView = [KNAlertView showMessage:@"您好" title:nil cancelBtnTitle:@"取消" otherBtnTitle:@"确定" alertViewStyle:KNAlertViewStyleSecureTextInput];
+    
+    KNAlertView *alertView = [KNAlertView showMessage:@"你挺好" title:nil cancelBtnTitle:@"取消" otherBtnTitle:@"开始" alertViewStyle:KNAlertViewStyleDefault];
     
     alertView.alertOtherBlock = ^(){
         NSLog(@"确定");
