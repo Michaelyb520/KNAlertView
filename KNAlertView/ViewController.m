@@ -33,7 +33,7 @@
 
 //   KNAlertView *alertView = [KNAlertView showMessage:@"您好" title:nil cancelBtnTitle:@"取消" otherBtnTitle:@"确定" alertViewStyle:KNAlertViewStyleSecureTextInput];
     
-    KNAlertView *alertView = [KNAlertView showMessage:@"你挺好" title:nil cancelBtnTitle:@"取消" otherBtnTitle:@"开始" alertViewStyle:KNAlertViewStyleDefault];
+    KNAlertView *alertView = [KNAlertView showMessage:@"你挺好" title:nil cancelBtnTitle:@"取消" otherBtnTitle:@"开始"];
     
     alertView.alertOtherBlock = ^(){
         NSLog(@"确定");

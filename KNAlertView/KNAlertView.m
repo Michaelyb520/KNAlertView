@@ -14,43 +14,16 @@
 
 @implementation KNAlertView
 
-- (instancetype)init{
-    if(self = [super init]){
-        self.delegate = self;
-    }
-    return self;
++ (KNAlertView *)showMessage:(NSString *)message title:(NSString *)title cancelBtnTitle:(NSString *)cancelTitle{
+    return [self showMessage:message delegate:nil title:title cancelBtnTitle:cancelTitle otherButtonTitle:nil];
 }
 
-+ (KNAlertView *)showMessage:(NSString *)message title:(NSString *)title cancelBtnTitle:(NSString *)cancelTitle alertViewStyle:(KNAlertViewStyle)alertViewStyle{
-    return [self showMessage:message delegate:nil title:title cancelBtnTitle:cancelTitle otherButtonTitle:nil alertViewStyle:alertViewStyle];
++ (KNAlertView *)showMessage:(NSString *)message title:(NSString *)title cancelBtnTitle:(NSString *)cancelTitle otherBtnTitle:(NSString *)otherButtonTitle{
+    return [self showMessage:message delegate:nil title:title cancelBtnTitle:cancelTitle otherButtonTitle:otherButtonTitle];
 }
 
-+ (KNAlertView *)showMessage:(NSString *)message title:(NSString *)title cancelBtnTitle:(NSString *)cancelTitle otherBtnTitle:(NSString *)otherButtonTitle alertViewStyle:(KNAlertViewStyle)alertViewStyle{
-    return [self showMessage:message delegate:nil title:title cancelBtnTitle:cancelTitle otherButtonTitle:otherButtonTitle alertViewStyle:alertViewStyle];
-}
-
-+ (KNAlertView *)showMessage:(NSString *)message delegate:(id<UIAlertViewDelegate>)delegate title:(NSString *)title cancelBtnTitle:(NSString *)cancelBtnTitle otherButtonTitle:(NSString *)otherButtonTitle alertViewStyle:(KNAlertViewStyle)alertViewStyle{
++ (KNAlertView *)showMessage:(NSString *)message delegate:(id<UIAlertViewDelegate>)delegate title:(NSString *)title cancelBtnTitle:(NSString *)cancelBtnTitle otherButtonTitle:(NSString *)otherButtonTitle{
     KNAlertView *alert = [[KNAlertView alloc] initWithTitle:title?title:@"提示" message:message delegate:delegate cancelButtonTitle:cancelBtnTitle otherButtonTitles:otherButtonTitle,nil];
-    
-    
-    switch (alertViewStyle) {
-        case KNAlertViewStyleDefault:
-            alert.alertViewStyle = UIAlertViewStyleDefault;
-            break;
-        case KNAlertViewStyleLoginAndPasswordInput:
-            alert.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
-            break;
-        case KNAlertViewStylePlainTextInput:
-            alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-            break;
-        case KNAlertViewStyleSecureTextInput:
-            alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
-            break;
-        default:
-            alert.alertViewStyle = UIAlertViewStyleDefault;
-            break;
-    }
-    
     alert.delegate = alert;
     [alert show];
     return alert;

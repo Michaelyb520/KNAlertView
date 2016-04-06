@@ -8,12 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum {
-    KNAlertViewStyleDefault,
-    KNAlertViewStyleSecureTextInput,
-    KNAlertViewStylePlainTextInput,
-    KNAlertViewStyleLoginAndPasswordInput
-}KNAlertViewStyle;
 
 /**
  *  取消的block回调
@@ -36,7 +30,7 @@ typedef void(^KNAlertOtherBlock)();
  *  @param alertViewStyle 弹出框样式
  *  @return 返回一个 alertView
  */
-+ (KNAlertView *)showMessage:(NSString *)message title:(NSString *)title cancelBtnTitle:(NSString *)cancelTitle alertViewStyle:(KNAlertViewStyle)alertViewStyle;
++ (KNAlertView *)showMessage:(NSString *)message title:(NSString *)title cancelBtnTitle:(NSString *)cancelTitle;
 
 
 /**
@@ -50,7 +44,7 @@ typedef void(^KNAlertOtherBlock)();
  *
  *  @return 返回一个 alertView
  */
-+ (KNAlertView *)showMessage:(NSString *)message title:(NSString *)title cancelBtnTitle:(NSString *)cancelTitle otherBtnTitle:(NSString *)otherButtonTitle alertViewStyle:(KNAlertViewStyle)alertViewStyle;
++ (KNAlertView *)showMessage:(NSString *)message title:(NSString *)title cancelBtnTitle:(NSString *)cancelTitle otherBtnTitle:(NSString *)otherButtonTitle;
 
 @property (nonatomic, copy) KNKAlertCancelBlock alertCancelBlock;
 @property (nonatomic, copy) KNAlertOtherBlock alertOtherBlock;
