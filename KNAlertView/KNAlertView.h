@@ -12,7 +12,7 @@
 /**
  *  取消的block回调
  */
-typedef void(^KNKAlertCancelBlock)();
+typedef void(^KNAlertCancelBlock)();
 
 /**
  *  确定的block回调
@@ -46,6 +46,6 @@ typedef void(^KNAlertOtherBlock)();
  */
 + (KNAlertView *)showMessage:(NSString *)message title:(NSString *)title cancelBtnTitle:(NSString *)cancelTitle otherBtnTitle:(NSString *)otherButtonTitle;
 
-@property (nonatomic, copy) KNKAlertCancelBlock alertCancelBlock;
+@property (nonatomic, copy) KNAlertCancelBlock alertCancelBlock;
 @property (nonatomic, copy) KNAlertOtherBlock alertOtherBlock;
 @end
