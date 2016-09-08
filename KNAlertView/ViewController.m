@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "KNAlertView.h"
+#import "KNActionSheet.h"
 
 @interface ViewController ()
 
@@ -19,20 +20,26 @@
     [super viewDidLoad];
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setTitle:@"点我有用" forState:UIControlStateNormal];
+    [btn setTitle:@"AlertView" forState:UIControlStateNormal];
     
     btn.frame = CGRectMake(100, 100, 100, 50);
     [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
     
+    UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn1 setTitle:@"ActionSheet" forState:UIControlStateNormal];
+    
+    btn1.frame = CGRectMake(100, 200, 100, 50);
+    [btn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn1 addTarget:self action:@selector(actionSheetIBAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn1];
+    
 }
 
 - (void)click{
-//   KNAlertView *alertView = [KNAlertView showMessage:@"你好" title:@"提示" cancelBtnTitle:@"取消"];
-
-//   KNAlertView *alertView = [KNAlertView showMessage:@"您好" title:nil cancelBtnTitle:@"取消" otherBtnTitle:@"确定"];
-    
+/****************************** == AlertView == ********************************/
+    // 1. 方法一
     KNAlertView *alertView = [KNAlertView showMessage:@"你挺好" title:nil cancelBtnTitle:@"取消" otherBtnTitle:@"开始"];
     
     alertView.alertOtherBlock = ^(){
@@ -42,7 +49,20 @@
     alertView.alertCancelBlock = ^(){
         NSLog(@"取消");
     };
+    
+//    // 2. 方法二
+//    [KNAlertView showMessage:@"hehe" title:@"title" cancelBtnTitle:@"cancel" otherBtnTitle:@"sure" buttonBlock:^(NSInteger buttonIndex) {
+//        NSLog(@"alertView :%zd",buttonIndex);
+//    }];
+    
 }
 
+- (void)actionSheetIBAction{
+    /****************************** == ActionSheet == ********************************/
+    KNActionSheet *actionSheet = [[KNActionSheet alloc] initWithCancelBtnTitle:@"cancel" destructiveButtonTitle:nil otherBtnTitlesArr:@[@"first",@"second",@"third"] actionBlock:^(NSInteger buttonIndex) {
+        NSLog(@"actionSheet :%zd",buttonIndex);
+    }];
+    [actionSheet show];
+}
 
 @end
